@@ -1,0 +1,31 @@
+{
+  "name": "testing-integrasi-oauth2-dengan-odoo",
+  "version": "0.0.1",
+  "description": "Sebuah demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rommyarb/testing-integrasi-oauth2-dengan-odoo.git"
+  },
+  "author": "rommyarb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rommyarb/testing-integrasi-oauth2-dengan-odoo/issues"
+  },
+  "homepage": "https://github.com/rommyarb/testing-integrasi-oauth2-dengan-odoo#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.0"
+  }
+}
