@@ -185,5 +185,5 @@ function CheckUser(input) {
 }
 
 app.listen(process.env.PORT, () => {
-  console.log(`🏃‍♂️ Berjalan di port ${port}`)
+  console.log(`🏃‍♂️ Berjalan di port ${process.env.PORT}`)
 })
