@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ."
+    "start": "nodemon ."
   },
   "repository": {
     "type": "git",
@@ -18,11 +18,14 @@
   },
   "homepage": "https://github.com/rommyarb/testing-integrasi-oauth2-dengan-odoo#readme",
   "dependencies": {
+    "axios": "^0.26.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "dotenv": "^16.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.4.1",
+    "nodemon": "^2.0.15",
     "passport": "^0.4.0",
     "passport-facebook": "^3.0.0",
     "passport-google-oauth20": "^2.0.0",
