@@ -18,13 +18,12 @@ app.get('/auth/email', (req, res) => {
 
 app.post('/auth/validation', (req, res) => {
   console.log('✅ POST /auth/validation')
-  console.log('REQUEST NYA:', req)
+  // console.log('REQUEST NYA:', req)
   res.status(200).send()
 })
 
 app.get('/auth/validation', (req, res) => {
   console.log('✅ GET /auth/validation')
-  console.log('REQUEST NYA:', req)
   res.status(200).send()
 })
 
@@ -36,8 +35,6 @@ app.post('/auth/email', async (req, res) => {
       username: SVARA_AUTH,
       password: SVARA_AUTH,
     })
-
-    console.log('getLoginToken:', getLoginToken)
 
     const { data: tokenData } = getLoginToken
     const { accessToken: loginToken } = tokenData
@@ -55,20 +52,20 @@ app.post('/auth/email', async (req, res) => {
         },
       }
     )
-    console.log('LOGIN SUCCESS')
+    console.log('✅ LOGIN SUCCESS')
 
     const {
       // userId,
       accessToken: token,
     } = login.data
 
-    console.log('accessToken:', token)
+    console.log('✅ accessToken:', token)
 
     const redirectURL = encodeURI(
       `https://odoo.officely.id/auth_oauth/signin?scope=email&state={"d":"bitnami_odoo","p":4,"r":"https://odoo.officely.id/web"}&access_token=${token}`
     )
 
-    console.log('redirect URL:', redirectURL)
+    console.log('✅ redirect URL:', redirectURL)
     res.redirect(
       // `https://odoo.officely.id/auth_oauth/signin#state={"userId":"${userId}"}&access_token=${token}`
       redirectURL
@@ -81,5 +78,5 @@ app.post('/auth/email', async (req, res) => {
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {
-  console.log(`Sever ARG0 listening on port ${port} | http://localhost:5000`)
+  console.log(`Sever is listening on port ${port} | http://localhost:5000`)
 })
