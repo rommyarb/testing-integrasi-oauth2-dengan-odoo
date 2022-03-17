@@ -78,5 +78,5 @@ app.post('/auth/email', async (req, res) => {
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {
-  console.log(`Sever is listening on port ${port} | http://localhost:5000`)
+  console.log(`Server is listening on port ${port} | http://localhost:5000`)
 })
