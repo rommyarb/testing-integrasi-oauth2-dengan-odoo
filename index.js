@@ -16,6 +16,18 @@ app.get('/auth/email', (req, res) => {
   res.sendFile('login_form.html', { root: __dirname + '/public' })
 })
 
+app.post('/auth/validation', (req, res) => {
+  console.log('✅ POST /auth/validation')
+  console.log('REQUEST NYA:', req)
+  res.status(200).send()
+})
+
+app.get('/auth/validation', (req, res) => {
+  console.log('✅ GET /auth/validation')
+  console.log('REQUEST NYA:', req)
+  res.status(200).send()
+})
+
 app.post('/auth/email', async (req, res) => {
   try {
     const { username, password } = req.body
@@ -24,6 +36,8 @@ app.post('/auth/email', async (req, res) => {
       username: SVARA_AUTH,
       password: SVARA_AUTH,
     })
+
+    console.log('getLoginToken:', getLoginToken)
 
     const { data: tokenData } = getLoginToken
     const { accessToken: loginToken } = tokenData
@@ -41,11 +55,23 @@ app.post('/auth/email', async (req, res) => {
         },
       }
     )
+    console.log('LOGIN SUCCESS')
 
-    const { userId, accessToken: token } = login.data
+    const {
+      // userId,
+      accessToken: token,
+    } = login.data
+
+    console.log('accessToken:', token)
+
+    const redirectURL = encodeURI(
+      `https://odoo.officely.id/auth_oauth/signin?scope=email&state={"d":"bitnami_odoo","p":4,"r":"https://odoo.officely.id/web"}&access_token=${token}`
+    )
+
+    console.log('redirect URL:', redirectURL)
     res.redirect(
       // `https://odoo.officely.id/auth_oauth/signin#state={"userId":"${userId}"}&access_token=${token}`
-      `https://odoo.officely.id/auth_oauth/signin?access_token=${token}`
+      redirectURL
     )
   } catch (e) {
     console.error(e.message)
